@@ -1,0 +1,21 @@
+---
+// src/components/Footer.astro
+---
+
+<footer class="bg-navy text-white py-10 px-6 mt-20">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between gap-6 text-sm">
+    <div>
+      <img src="/logo-dunkel.svg" alt="TR Creative" class="h-7 mb-3" />
+      <p class="text-white/60">Social Media Marketing aus Aschersleben.</p>
+    </div>
+    <div class="flex flex-col gap-1 text-white/70">
+      <a href="/leistungen" class="hover:text-gold">Leistungen</a>
+      <a href="/ueber-mich" class="hover:text-gold">Über mich</a>
+      <a href="/kontakt" class="hover:text-gold">Kontakt</a>
+    </div>
+    <div class="text-white/40 text-xs self-end">
+      © {new Date().getFullYear()} TR Creative · Toni Rönnspieß ·
+      <a href="/impressum" class="hover:text-gold">Impressum</a>
+    </div>
+  </div>
+</footer>
