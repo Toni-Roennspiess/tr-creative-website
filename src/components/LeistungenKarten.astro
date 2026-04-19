@@ -1,0 +1,43 @@
+---
+// src/components/LeistungenKarten.astro
+const leistungen = [
+  {
+    icon: '📣',
+    title: 'Meta Ads',
+    text: 'Zielgenaue Facebook- und Instagram-Kampagnen, die neue Kunden und Bewerber bringen — nicht nur Likes.',
+  },
+  {
+    icon: '🎬',
+    title: 'Content Creation',
+    text: 'Reels, Karussells und Posts, die deine Marke professionell zeigen und Vertrauen aufbauen.',
+  },
+  {
+    icon: '🎥',
+    title: 'Video-Produktion',
+    text: 'Hochwertige Unternehmensvideos mit Sony FX30 — von der Idee bis zum fertigen Schnitt.',
+  },
+]
+---
+
+<section class="py-20 px-6 bg-white">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="font-heading text-3xl text-navy text-center mb-4">Was ich für dich tue</h2>
+    <p class="text-center text-gray-500 mb-12 max-w-xl mx-auto">
+      Drei Leistungen, ein Ziel: dein Unternehmen sichtbar machen und Ergebnisse liefern.
+    </p>
+    <div class="grid md:grid-cols-3 gap-8">
+      {leistungen.map(l => (
+        <div class="border border-gray-200 rounded-xl p-8 hover:border-gold hover:shadow-md transition">
+          <div class="text-4xl mb-4">{l.icon}</div>
+          <h3 class="font-heading text-xl text-navy mb-3">{l.title}</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">{l.text}</p>
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-10">
+      <a href="/leistungen" class="text-navy font-semibold underline hover:text-gold transition">
+        Alle Leistungen im Detail →
+      </a>
+    </div>
+  </div>
+</section>

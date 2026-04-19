@@ -1,10 +1,24 @@
 ---
 // src/pages/index.astro
 import Base from '../layouts/Base.astro'
+import Hero from '../components/Hero.astro'
+import LeistungenKarten from '../components/LeistungenKarten.astro'
+import SocialProof from '../components/SocialProof.astro'
 ---
 
-<Base title="Home">
-  <div class="max-w-5xl mx-auto px-6 py-20 text-center">
-    <h1 class="font-heading text-4xl text-navy">Platzhalter – Home kommt in Task 3</h1>
-  </div>
+<Base title="Home" description="TR Creative – Social Media Marketing für lokale Unternehmen in Aschersleben. Meta Ads, Content Creation, Video.">
+  <Hero />
+  <LeistungenKarten />
+  <SocialProof />
+
+  <!-- Abschluss-CTA -->
+  <section class="py-20 px-6 bg-navy text-white text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-3xl md:text-4xl mb-4">Bereit für mehr Sichtbarkeit?</h2>
+      <p class="text-white/70 mb-8">Kostenloses Erstgespräch — ich zeige dir konkret, was ich für dein Unternehmen tun kann.</p>
+      <a href="/kontakt" class="bg-gold text-navy font-semibold px-8 py-3 rounded hover:brightness-110 transition">
+        Jetzt Gespräch vereinbaren
+      </a>
+    </div>
+  </section>
 </Base>

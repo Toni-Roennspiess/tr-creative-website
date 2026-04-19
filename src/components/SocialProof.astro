@@ -1,0 +1,24 @@
+---
+// src/components/SocialProof.astro
+const referenzen = [
+  { name: 'Fahrschule Jan', ort: 'Aschersleben', zitat: 'Professioneller Content der unsere Reichweite spürbar erhöht hat.' },
+  { name: 'Arno Schone Baustoffhandel', ort: 'Sachsen-Anhalt', zitat: 'Endlich eine klare Social-Media-Strategie die zu uns passt.' },
+  { name: 'Suritec Systems', ort: 'Sachsen-Anhalt', zitat: 'Von der SEO-Analyse bis zu fertigen Reel-Scripts — alles aus einer Hand.' },
+]
+---
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="font-heading text-3xl text-navy text-center mb-4">Unternehmen die mir vertrauen</h2>
+    <p class="text-center text-gray-500 mb-12">Lokale Betriebe aus Sachsen-Anhalt, die bereits mit TR Creative arbeiten.</p>
+    <div class="grid md:grid-cols-3 gap-6">
+      {referenzen.map(r => (
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <p class="text-gray-600 text-sm italic mb-4">„{r.zitat}"</p>
+          <div class="font-semibold text-navy text-sm">{r.name}</div>
+          <div class="text-gray-400 text-xs">{r.ort}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
