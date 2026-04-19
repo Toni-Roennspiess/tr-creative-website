@@ -1,0 +1,89 @@
+---
+// src/pages/leistungen.astro
+import Base from '../layouts/Base.astro'
+
+const leistungen = [
+  {
+    title: 'Meta Ads',
+    icon: '📣',
+    beschreibung: 'Ich erstelle und betreue deine Werbekampagnen auf Facebook und Instagram. Vom Targeting über die Anzeigengestaltung bis zum monatlichen Reporting.',
+    fuer: 'Unternehmen die schnell neue Kunden oder Bewerber gewinnen wollen.',
+    punkte: [
+      'Kampagnen-Setup & Strategie',
+      'Zielgruppen-Analyse & Targeting',
+      'Kreativ-Konzept für Anzeigen',
+      'Monatliches Reporting & Optimierung',
+    ],
+  },
+  {
+    title: 'Content Creation',
+    icon: '🎬',
+    beschreibung: 'Reels, Karussells und Posts die deine Marke authentisch zeigen — mit Strategie dahinter, nicht nur gutes Aussehen.',
+    fuer: 'Unternehmen die regelmäßig professionellen Content benötigen ohne eigenes Team.',
+    punkte: [
+      'Redaktionsplan & Content-Strategie',
+      'Reels & Kurzvideos (TikTok/Instagram)',
+      'Karussell-Posts & Infografiken',
+      'Captions & Hashtag-Strategie',
+    ],
+  },
+  {
+    title: 'Video-Produktion',
+    icon: '🎥',
+    beschreibung: 'Hochwertige Unternehmensvideos mit Sony FX30 — von der Konzeptidee über den Drehtag bis zum fertigen Schnitt in Adobe Premiere.',
+    fuer: 'Betriebe die sich mit einem professionellen Imagevideo oder Recruiting-Film positionieren wollen.',
+    punkte: [
+      'Konzept & Scriptentwicklung',
+      'Drehtag vor Ort (Aschersleben & Umgebung)',
+      'Professioneller Schnitt & Color Grading',
+      'Formatierung für alle Plattformen',
+    ],
+  },
+]
+---
+
+<Base title="Leistungen" description="Meta Ads, Content Creation und Video-Produktion für lokale Unternehmen. TR Creative aus Aschersleben.">
+  <!-- Page Header -->
+  <section class="bg-navy text-white py-16 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-gold text-sm uppercase tracking-widest mb-3">Was ich anbiete</p>
+      <h1 class="font-heading text-4xl md:text-5xl mb-4">Leistungen</h1>
+      <p class="text-white/70 text-lg">Drei Schwerpunkte, ein Ziel: dein Unternehmen sichtbar und erfolgreich machen.</p>
+    </div>
+  </section>
+
+  <!-- Leistungen -->
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto space-y-16">
+      {leistungen.map((l, i) => (
+        <div class={`flex flex-col md:flex-row gap-10 ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+          <div class="flex-1 bg-gray-50 rounded-2xl flex items-center justify-center text-7xl py-12">
+            {l.icon}
+          </div>
+          <div class="flex-1">
+            <h2 class="font-heading text-2xl text-navy mb-3">{l.title}</h2>
+            <p class="text-gray-600 mb-4 leading-relaxed">{l.beschreibung}</p>
+            <p class="text-sm text-gold font-semibold mb-4">Für wen: {l.fuer}</p>
+            <ul class="space-y-2">
+              {l.punkte.map(p => (
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                  <span class="text-gold mt-0.5">✓</span>
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gray-50 py-16 px-6 text-center">
+    <h2 class="font-heading text-3xl text-navy mb-4">Interesse? Lass uns reden.</h2>
+    <p class="text-gray-500 mb-8">Kostenloses Erstgespräch — kein Druck, kein Pitch. Nur ein ehrliches Gespräch über deine Situation.</p>
+    <a href="/kontakt" class="bg-navy text-white font-semibold px-8 py-3 rounded hover:bg-gold hover:text-navy transition">
+      Jetzt anfragen
+    </a>
+  </section>
+</Base>
