@@ -1,0 +1,73 @@
+---
+// src/pages/ueber-mich.astro
+import Base from '../layouts/Base.astro'
+---
+
+<Base title="Über mich" description="Toni Rönnspieß – Videograf, Content Creator und Social Media Marketer aus Aschersleben, Sachsen-Anhalt.">
+  <!-- Header -->
+  <section class="bg-navy text-white py-16 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-gold text-sm uppercase tracking-widest mb-3">Wer steckt dahinter</p>
+      <h1 class="font-heading text-4xl md:text-5xl">Über mich</h1>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-14 items-start">
+      <!-- Foto-Platzhalter -->
+      <div class="w-full md:w-64 shrink-0">
+        <div class="bg-gray-100 rounded-2xl aspect-[3/4] flex items-center justify-center text-gray-300 text-sm">
+          Foto folgt
+        </div>
+      </div>
+
+      <div>
+        <h2 class="font-heading text-2xl text-navy mb-4">Hallo, ich bin Toni.</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Ich bin Videograf, Content Creator und Social Media Marketer aus Aschersleben in Sachsen-Anhalt.
+          Mit TR Creative helfe ich lokalen Unternehmen dabei, sich online zu positionieren — mit Content der wirklich wirkt.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Mein Hintergrund: Ich kenne beide Welten. Als Fahrlehrer weiß ich, wie ein lokaler Betrieb funktioniert.
+          Als Videograf und Content Creator weiß ich, was auf Instagram und TikTok tatsächlich Ergebnisse bringt.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-8">
+          Ich arbeite nicht mit Vorlagen oder Einheitslösungen. Ich lerne deinen Betrieb kennen, entwickle eine passende Strategie
+          und setze sie mit dir um — Schritt für Schritt.
+        </p>
+
+        <h3 class="font-heading text-xl text-navy mb-4">Meine Arbeitsweise</h3>
+        <div class="grid sm:grid-cols-3 gap-4 mb-8">
+          {[
+            { step: '01', text: 'Situation verstehen — was läuft, was fehlt, was das Ziel ist.' },
+            { step: '02', text: 'Strategie entwickeln — welche Inhalte, welche Plattformen, welcher Rhythmus.' },
+            { step: '03', text: 'Umsetzen & optimieren — Content produzieren, auswerten, verbessern.' },
+          ].map(s => (
+            <div class="bg-gray-50 rounded-xl p-5">
+              <div class="text-gold font-bold text-lg mb-2">{s.step}</div>
+              <p class="text-sm text-gray-600">{s.text}</p>
+            </div>
+          ))}
+        </div>
+
+        <h3 class="font-heading text-xl text-navy mb-3">Equipment</h3>
+        <ul class="text-sm text-gray-600 space-y-1">
+          <li>🎥 Sony FX30 – Kamera</li>
+          <li>✂️ Adobe Premiere Pro – Schnitt</li>
+          <li>📱 Instagram, TikTok, Facebook – Plattformen</li>
+          <li>🤖 KI-Tools & Automatisierung für effiziente Workflows</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy text-white py-16 px-6 text-center">
+    <h2 class="font-heading text-3xl mb-4">Lass uns zusammenarbeiten.</h2>
+    <p class="text-white/70 mb-8">Kostenloses Erstgespräch — ich freue mich drauf.</p>
+    <a href="/kontakt" class="bg-gold text-navy font-semibold px-8 py-3 rounded hover:brightness-110 transition">
+      Kontakt aufnehmen
+    </a>
+  </section>
+</Base>
