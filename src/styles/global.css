@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1B3A5C;
+  --color-gold: #C8A951;
+
+  --font-family-heading: Georgia, serif;
+  --font-family-body: system-ui, Calibri, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+}
+
+body {
+  font-family: system-ui, Calibri, sans-serif;
+}
