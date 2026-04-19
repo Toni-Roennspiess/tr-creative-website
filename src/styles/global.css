@@ -1,17 +1,57 @@
+/* src/styles/global.css */
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #1B3A5C;
-  --color-gold: #C8A951;
+  --color-midnight: #0d0a1e;
+  --color-surface: #13102a;
+  --color-accent: #7c3aed;
+  --color-accent-soft: #a78bfa;
+  --color-cream: #e8e0ff;
+  --color-muted: #6b5fa0;
+  --color-brand: #E8002D;
 
-  --font-family-heading: Georgia, serif;
-  --font-family-body: system-ui, Calibri, sans-serif;
+  --font-family-heading: 'Outfit', sans-serif;
+  --font-family-body: 'Plus Jakarta Sans', sans-serif;
+  --font-family-mono: 'Space Mono', monospace;
 }
 
-h1, h2, h3, h4 {
-  font-family: Georgia, serif;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: system-ui, Calibri, sans-serif;
+  background-color: #0d0a1e;
+  color: #e8e0ff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.glass-card {
+  background: rgba(19, 16, 42, 0.8);
+  border: 1px solid rgba(167, 139, 250, 0.15);
+  backdrop-filter: blur(12px);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
+  border-color: rgba(167, 139, 250, 0.35);
 }

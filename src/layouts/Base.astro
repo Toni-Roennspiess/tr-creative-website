@@ -9,7 +9,7 @@ interface Props {
   description?: string
 }
 
-const { title, description = 'TR Creative – Social Media Marketing für lokale Unternehmen in Aschersleben und Umgebung.' } = Astro.props
+const { title, description = 'TR Creative – Social Media Agentur für Unternehmen die wachsen wollen.' } = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -20,12 +20,27 @@ const { title, description = 'TR Creative – Social Media Marketing für lokale
   <meta name="description" content={description} />
   <title>{title} | TR Creative</title>
   <link rel="icon" href="/logo-hell.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@300;400;700&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
-<body class="bg-white text-gray-800 font-body">
+<body class="bg-midnight text-cream font-body">
   <Nav />
   <main>
     <slot />
   </main>
   <Footer />
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible')
+          observer.unobserve(e.target)
+        }
+      })
+    }, { threshold: 0.1 })
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el))
+  </script>
 </body>
 </html>
