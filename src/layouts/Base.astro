@@ -18,15 +18,22 @@ const { title, description = 'TR Creative – Social Media Agentur für Unterneh
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
+  <meta property="og:title" content={`${title} | TR Creative`} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
   <title>{title} | TR Creative</title>
   <link rel="icon" href="/logo-hell.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@300;400;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body class="bg-midnight text-cream font-body">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-accent focus:text-white focus:px-4 focus:py-2 focus:rounded">
+    Zum Hauptinhalt springen
+  </a>
   <Nav />
-  <main>
+  <main id="main-content">
     <slot />
   </main>
   <Footer />
