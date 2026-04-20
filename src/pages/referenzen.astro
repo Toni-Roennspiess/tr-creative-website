@@ -1,0 +1,80 @@
+---
+// src/pages/referenzen.astro
+import Base from '../layouts/Base.astro'
+import PageHero from '../components/PageHero.astro'
+import CtaSection from '../components/CtaSection.astro'
+---
+
+<Base
+  title="Referenzen"
+  description="Unsere Kunden und Projekte. TR Creative Social Media Agentur."
+>
+  <PageHero
+    eyebrow="Unsere Kunden"
+    headline="Unternehmen die uns vertrauen"
+    subtext="Echte Ergebnisse für echte Unternehmen."
+  />
+
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+
+      <div class="glass-card rounded-2xl overflow-hidden fade-in mb-12">
+        <div class="p-10 md:p-14">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="text-accent-soft" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-heading font-bold text-xl text-cream">Fahrschule Jan</div>
+              <div class="text-muted text-sm">Aschersleben, Sachsen-Anhalt</div>
+            </div>
+          </div>
+
+          <blockquote class="text-cream text-xl md:text-2xl font-heading italic leading-relaxed mb-8 border-l-2 border-accent pl-6">
+            Professioneller Content der unsere Reichweite spürbar erhöht hat.
+          </blockquote>
+
+          <p class="text-muted leading-relaxed mb-8">
+            Für die Fahrschule Jan haben wir eine komplette Social Media Strategie entwickelt und umgesetzt. Content Videos, Karussell Posts und gezielte Meta Ads haben dazu beigetragen, die Online-Sichtbarkeit deutlich zu steigern und neue Fahrschüler zu gewinnen.
+          </p>
+
+          <div class="grid sm:grid-cols-3 gap-6">
+            {[
+              { label: 'Leistungen', wert: 'Content Videos, Karussell Posts, Meta Ads' },
+              { label: 'Plattformen', wert: 'Instagram, Facebook, TikTok' },
+              { label: 'Ziel', wert: 'Neue Fahrschüler gewinnen' },
+            ].map(item => (
+              <div class="bg-accent/5 border border-accent/10 rounded-xl p-5">
+                <div class="font-mono text-accent-soft text-xs uppercase tracking-widest mb-2">{item.label}</div>
+                <div class="text-cream text-sm font-medium">{item.wert}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6 fade-in">
+        {[1, 2].map(() => (
+          <div class="border border-dashed border-accent/20 rounded-2xl p-10 flex flex-col items-center justify-center text-center gap-3 min-h-48">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="text-accent/30" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+            <p class="text-muted text-sm">Bald hier</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <CtaSection
+    headline="Werde unser nächster Erfolg."
+    subtext="Kostenloses Erstgespräch. Wir schauen uns deine Situation an und zeigen dir was möglich ist."
+    ctaPrimary="Jetzt anfragen"
+    ctaPrimaryHref="/kontakt"
+    ctaSecondary="WhatsApp schreiben"
+    ctaSecondaryHref="https://wa.me/491709870872"
+  />
+</Base>

@@ -1,73 +1,82 @@
 ---
 // src/pages/leistungen.astro
 import Base from '../layouts/Base.astro'
+import PageHero from '../components/PageHero.astro'
+import CtaSection from '../components/CtaSection.astro'
 
 const leistungen = [
   {
+    icon: `<svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"/></svg>`,
+    title: 'Content Videos',
+    beschreibung: 'Professionelle Reels, TikToks und Imagefilme die deine Marke zeigen. Produziert mit professionellem Equipment, geschnitten für maximale Wirkung auf Social Media.',
+    fuer: 'Unternehmen die ihre Sichtbarkeit durch Video-Content steigern wollen.',
+    punkte: ['Konzept und Scriptentwicklung', 'Professionelle Produktion vor Ort', 'Schnitt und Color Grading', 'Formatierung für alle Plattformen (Reels, TikTok, YouTube Shorts)'],
+  },
+  {
+    icon: `<svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg>`,
+    title: 'Foto-Produktion',
+    beschreibung: 'Professionelle Fotos die dein Unternehmen, dein Team und deine Produkte ins richtige Licht rücken. Für Social Media, Website und Marketing-Materialien.',
+    fuer: 'Unternehmen die professionelle Bildwelten für ihren Markenauftritt benötigen.',
+    punkte: ['Fotoshooting vor Ort', 'Team und Mitarbeiterfotos', 'Produkt und Dienstleistungsfotografie', 'Bearbeitung und Bildoptimierung für Social Media'],
+  },
+  {
+    icon: `<svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>`,
+    title: 'Karussell Posts',
+    beschreibung: 'Mehrseitige Instagram Posts mit durchdachter Strategie dahinter. Mehr Verweildauer, mehr Reichweite und mehr Speicherungen.',
+    fuer: 'Unternehmen die regelmäßig hochwertigen und informativen Content auf Instagram veröffentlichen wollen.',
+    punkte: ['Content-Strategie und Themenplanung', 'Grafik-Design im Markenlook', 'Captions und Hashtag-Strategie', 'Analyse und Optimierung der Performance'],
+  },
+  {
+    icon: `<svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062A1.125 1.125 0 013 16.81V8.688zM12.75 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062a1.125 1.125 0 01-1.683-.977V8.688z"/></svg>`,
     title: 'Meta Ads',
-    icon: '📣',
-    beschreibung: 'Ich erstelle und betreue deine Werbekampagnen auf Facebook und Instagram. Vom Targeting über die Anzeigengestaltung bis zum monatlichen Reporting.',
-    fuer: 'Unternehmen die schnell neue Kunden oder Bewerber gewinnen wollen.',
-    punkte: [
-      'Kampagnen-Setup & Strategie',
-      'Zielgruppen-Analyse & Targeting',
-      'Kreativ-Konzept für Anzeigen',
-      'Monatliches Reporting & Optimierung',
-    ],
+    beschreibung: 'Gezielte Werbekampagnen auf Facebook und Instagram die neue Kunden und Bewerber bringen. Vom Setup über die Anzeigengestaltung bis zum monatlichen Reporting.',
+    fuer: 'Unternehmen die schnell und messbar neue Kunden oder Bewerber gewinnen wollen.',
+    punkte: ['Kampagnen-Setup und Strategie', 'Zielgruppen-Analyse und Targeting', 'Kreativ-Konzept für Anzeigen (Text, Bild, Video)', 'Monatliches Reporting und Optimierung'],
   },
   {
-    title: 'Content Creation',
-    icon: '🎬',
-    beschreibung: 'Reels, Karussells und Posts die deine Marke authentisch zeigen — mit Strategie dahinter, nicht nur gutes Aussehen.',
-    fuer: 'Unternehmen die regelmäßig professionellen Content benötigen ohne eigenes Team.',
-    punkte: [
-      'Redaktionsplan & Content-Strategie',
-      'Reels & Kurzvideos (TikTok/Instagram)',
-      'Karussell-Posts & Infografiken',
-      'Captions & Hashtag-Strategie',
-    ],
+    icon: `<svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>`,
+    title: 'Mitarbeiterkampagnen',
+    beschreibung: 'Employer Branding Content der zeigt warum dein Unternehmen ein großartiger Arbeitgeber ist. Authentisch, ehrlich und so produziert dass sich die richtigen Bewerber angesprochen fühlen.',
+    fuer: 'Unternehmen die qualifizierte Mitarbeiter gewinnen und als Arbeitgeber positioniert werden wollen.',
+    punkte: ['Employer Branding Strategie', 'Mitarbeiter-Interviews und Team-Videos', 'Behind-the-Scenes Content', 'Verteilung über organische Posts und Ads'],
   },
   {
-    title: 'Video-Produktion',
-    icon: '🎥',
-    beschreibung: 'Hochwertige Unternehmensvideos mit Sony FX30 — von der Konzeptidee über den Drehtag bis zum fertigen Schnitt in Adobe Premiere.',
-    fuer: 'Betriebe die sich mit einem professionellen Imagevideo oder Recruiting-Film positionieren wollen.',
-    punkte: [
-      'Konzept & Scriptentwicklung',
-      'Drehtag vor Ort (Aschersleben & Umgebung)',
-      'Professioneller Schnitt & Color Grading',
-      'Formatierung für alle Plattformen',
-    ],
+    icon: `<svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z"/></svg>`,
+    title: 'Recruiting-Content',
+    beschreibung: 'Stellenanzeigen als Video und Post die aus der Masse herausstechen und qualifizierte Bewerber auf dein Unternehmen aufmerksam machen.',
+    fuer: 'Unternehmen die offene Stellen besetzen wollen und sich von klassischen Jobportalen abheben möchten.',
+    punkte: ['Kreative Stellenanzeigen als Reel oder Post', 'Zielgruppengerechte Ansprache', 'Verteilung via organischer Reichweite und Ads', 'Tracking der Bewerbungseingänge'],
   },
 ]
 ---
 
-<Base title="Leistungen" description="Meta Ads, Content Creation und Video-Produktion für lokale Unternehmen. TR Creative aus Aschersleben.">
-  <!-- Page Header -->
-  <section class="bg-navy text-white py-16 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-gold text-sm uppercase tracking-widest mb-3">Was ich anbiete</p>
-      <h1 class="font-heading text-4xl md:text-5xl mb-4">Leistungen</h1>
-      <p class="text-white/70 text-lg">Drei Schwerpunkte, ein Ziel: dein Unternehmen sichtbar und erfolgreich machen.</p>
-    </div>
-  </section>
+<Base
+  title="Leistungen"
+  description="Content Videos, Foto-Produktion, Karussell Posts, Meta Ads, Mitarbeiterkampagnen und Recruiting-Content. TR Creative Social Media Agentur."
+>
+  <PageHero
+    eyebrow="Was wir anbieten"
+    headline="Leistungen"
+    subtext="Sechs Schwerpunkte, ein Ziel: dein Unternehmen sichtbar und erfolgreich machen."
+  />
 
-  <!-- Leistungen -->
   <section class="py-20 px-6">
-    <div class="max-w-4xl mx-auto space-y-16">
+    <div class="max-w-5xl mx-auto space-y-20">
       {leistungen.map((l, i) => (
-        <div class={`flex flex-col md:flex-row gap-10 ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-          <div class="flex-1 bg-gray-50 rounded-2xl flex items-center justify-center text-7xl py-12">
-            {l.icon}
-          </div>
+        <div class={`flex flex-col md:flex-row gap-12 items-start fade-in ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+          <div class="glass-card rounded-2xl p-10 flex items-center justify-center text-accent-soft shrink-0 w-full md:w-64 h-48" set:html={l.icon} />
           <div class="flex-1">
-            <h2 class="font-heading text-2xl text-navy mb-3">{l.title}</h2>
-            <p class="text-gray-600 mb-4 leading-relaxed">{l.beschreibung}</p>
-            <p class="text-sm text-gold font-semibold mb-4">Für wen: {l.fuer}</p>
-            <ul class="space-y-2">
+            <h2 class="font-heading font-extrabold text-2xl text-cream mb-4">{l.title}</h2>
+            <p class="text-muted leading-relaxed mb-4">{l.beschreibung}</p>
+            <p class="text-xs font-mono text-accent-soft uppercase tracking-widest mb-5">
+              Für: {l.fuer}
+            </p>
+            <ul class="space-y-3">
               {l.punkte.map(p => (
-                <li class="flex items-start gap-2 text-sm text-gray-700">
-                  <span class="text-gold mt-0.5">✓</span>
+                <li class="flex items-start gap-3 text-sm text-cream/80">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-accent shrink-0 mt-0.5" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                  </svg>
                   {p}
                 </li>
               ))}
@@ -78,12 +87,12 @@ const leistungen = [
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-gray-50 py-16 px-6 text-center">
-    <h2 class="font-heading text-3xl text-navy mb-4">Interesse? Lass uns reden.</h2>
-    <p class="text-gray-500 mb-8">Kostenloses Erstgespräch — kein Druck, kein Pitch. Nur ein ehrliches Gespräch über deine Situation.</p>
-    <a href="/kontakt" class="bg-navy text-white font-semibold px-8 py-3 rounded hover:bg-gold hover:text-navy transition">
-      Jetzt anfragen
-    </a>
-  </section>
+  <CtaSection
+    headline="Interesse? Lass uns reden."
+    subtext="Kostenloses Erstgespräch. Kein Druck, kein Pitch. Nur ein ehrliches Gespräch über deine Situation."
+    ctaPrimary="Jetzt anfragen"
+    ctaPrimaryHref="/kontakt"
+    ctaSecondary="WhatsApp schreiben"
+    ctaSecondaryHref="https://wa.me/491709870872"
+  />
 </Base>
