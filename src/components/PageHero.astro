@@ -1,0 +1,32 @@
+---
+// src/components/PageHero.astro
+interface Props {
+  eyebrow?: string
+  headline: string
+  subtext?: string
+}
+const { eyebrow, headline, subtext } = Astro.props
+---
+
+<section class="pt-28 pb-16 px-6 relative overflow-hidden">
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,58,237,0.15) 0%, transparent 70%);"
+    aria-hidden="true"
+  ></div>
+  <div class="max-w-4xl mx-auto text-center relative">
+    {eyebrow && (
+      <p class="font-mono text-accent-soft text-xs uppercase tracking-widest mb-5">
+        {eyebrow}
+      </p>
+    )}
+    <h1 class="font-heading font-extrabold text-4xl md:text-6xl text-cream leading-tight">
+      {headline}
+    </h1>
+    {subtext && (
+      <p class="text-muted text-lg mt-5 max-w-2xl mx-auto leading-relaxed">
+        {subtext}
+      </p>
+    )}
+  </div>
+</section>

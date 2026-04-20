@@ -1,0 +1,54 @@
+---
+// src/components/CtaSection.astro
+interface Props {
+  headline: string
+  subtext: string
+  ctaPrimary?: string
+  ctaPrimaryHref?: string
+  ctaSecondary?: string
+  ctaSecondaryHref?: string
+}
+
+const {
+  headline,
+  subtext,
+  ctaPrimary = 'Jetzt anfragen',
+  ctaPrimaryHref = '/kontakt',
+  ctaSecondary,
+  ctaSecondaryHref,
+} = Astro.props
+---
+
+<section class="py-24 px-6 relative overflow-hidden">
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse 100% 100% at 50% 50%, rgba(124,58,237,0.12) 0%, transparent 70%);"
+    aria-hidden="true"
+  ></div>
+  <div class="max-w-2xl mx-auto text-center relative">
+    <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-cream mb-5">
+      {headline}
+    </h2>
+    <p class="text-muted text-lg mb-10 leading-relaxed">
+      {subtext}
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href={ctaPrimaryHref}
+        class="bg-brand text-white font-semibold px-8 py-4 rounded-lg hover:brightness-110 transition-all duration-200 text-sm tracking-wide"
+      >
+        {ctaPrimary}
+      </a>
+      {ctaSecondary && ctaSecondaryHref && (
+        <a
+          href={ctaSecondaryHref}
+          target={ctaSecondaryHref.startsWith('http') ? '_blank' : undefined}
+          rel={ctaSecondaryHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+          class="border border-accent/40 text-cream font-semibold px-8 py-4 rounded-lg hover:border-accent-soft hover:text-accent-soft transition-all duration-200 text-sm tracking-wide"
+        >
+          {ctaSecondary}
+        </a>
+      )}
+    </div>
+  </div>
+</section>

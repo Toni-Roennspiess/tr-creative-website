@@ -1,24 +1,182 @@
 ---
 // src/pages/index.astro
 import Base from '../layouts/Base.astro'
-import Hero from '../components/Hero.astro'
-import LeistungenKarten from '../components/LeistungenKarten.astro'
-import SocialProof from '../components/SocialProof.astro'
+import CtaSection from '../components/CtaSection.astro'
+
+const leistungen = [
+  {
+    icon: `<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"/></svg>`,
+    title: 'Content Videos',
+    text: 'Reels, TikToks und Imagefilme die deine Marke zeigen und echte Ergebnisse liefern.',
+  },
+  {
+    icon: `<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg>`,
+    title: 'Foto-Produktion',
+    text: 'Professionelle Fotos für Social Media und Website die dein Unternehmen ins richtige Licht rücken.',
+  },
+  {
+    icon: `<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>`,
+    title: 'Karussell Posts',
+    text: 'Mehrseitige Instagram-Posts mit Strategie dahinter die Reichweite und Vertrauen aufbauen.',
+  },
+  {
+    icon: `<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062A1.125 1.125 0 013 16.81V8.688zM12.75 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062a1.125 1.125 0 01-1.683-.977V8.688z"/></svg>`,
+    title: 'Meta Ads',
+    text: 'Facebook und Instagram Kampagnen die gezielt neue Kunden und Bewerber bringen.',
+  },
+  {
+    icon: `<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>`,
+    title: 'Mitarbeiterkampagnen',
+    text: 'Employer Branding Content der zeigt warum dein Unternehmen ein großartiger Arbeitgeber ist.',
+  },
+  {
+    icon: `<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z"/></svg>`,
+    title: 'Recruiting-Content',
+    text: 'Stellenanzeigen als Video und Post die qualifizierte Bewerber auf dein Unternehmen aufmerksam machen.',
+  },
+]
+
+const gruende = [
+  {
+    nummer: '01',
+    titel: 'Lokal verwurzelt',
+    text: 'Wir kennen den Markt in Sachsen-Anhalt und darüber hinaus. Content der zur Region und zur Zielgruppe passt.',
+  },
+  {
+    nummer: '02',
+    titel: 'Vollservice',
+    text: 'Von der Strategie über die Produktion bis zur Veröffentlichung. Alles aus einer Hand, kein Koordinationsaufwand.',
+  },
+  {
+    nummer: '03',
+    titel: 'Ergebnisorientiert',
+    text: 'Kein Content um des Contents willen. Jeder Post, jedes Video hat ein klares Ziel: mehr Kunden, mehr Umsatz, mehr Bewerber.',
+  },
+]
 ---
 
-<Base title="Home" description="TR Creative – Social Media Marketing für lokale Unternehmen in Aschersleben. Meta Ads, Content Creation, Video.">
-  <Hero />
-  <LeistungenKarten />
-  <SocialProof />
+<Base
+  title="Home"
+  description="TR Creative – Social Media Agentur. Content Videos, Meta Ads und komplettes Social Media Management für Unternehmen die wachsen wollen."
+>
 
-  <!-- Abschluss-CTA -->
-  <section class="py-20 px-6 bg-navy text-white text-center">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="font-heading text-3xl md:text-4xl mb-4">Bereit für mehr Sichtbarkeit?</h2>
-      <p class="text-white/70 mb-8">Kostenloses Erstgespräch — ich zeige dir konkret, was ich für dein Unternehmen tun kann.</p>
-      <a href="/kontakt" class="bg-gold text-navy font-semibold px-8 py-3 rounded hover:brightness-110 transition">
-        Jetzt Gespräch vereinbaren
-      </a>
+  <!-- Hero -->
+  <section class="min-h-[90vh] flex items-center px-6 pt-8 pb-20 relative overflow-hidden">
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background: radial-gradient(ellipse 70% 70% at 60% 40%, rgba(124,58,237,0.18) 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 20% 80%, rgba(232,0,45,0.08) 0%, transparent 60%);"
+      aria-hidden="true"
+    ></div>
+    <div class="max-w-5xl mx-auto relative">
+      <p class="font-mono text-accent-soft text-xs uppercase tracking-widest mb-6">
+        Social Media Agentur
+      </p>
+      <h1 class="font-heading font-extrabold text-5xl md:text-7xl lg:text-8xl text-cream leading-[1.05] mb-8 max-w-3xl">
+        Wir bauen<br />
+        <span style="background: linear-gradient(135deg, #a78bfa, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+          deine Marke.
+        </span>
+      </h1>
+      <p class="text-muted text-lg md:text-xl max-w-xl leading-relaxed mb-10">
+        Content Videos, Karussell Posts, Meta Ads und komplettes Social Media Management. Für lokale Betriebe und mittelständische Unternehmen.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a
+          href="/kontakt"
+          class="bg-brand text-white font-semibold px-8 py-4 rounded-lg hover:brightness-110 transition-all duration-200 text-sm tracking-wide text-center"
+        >
+          Kostenloses Erstgespräch
+        </a>
+        <a
+          href="/leistungen"
+          class="border border-accent/40 text-cream font-semibold px-8 py-4 rounded-lg hover:border-accent-soft hover:text-accent-soft transition-all duration-200 text-sm tracking-wide text-center"
+        >
+          Leistungen ansehen
+        </a>
+      </div>
     </div>
   </section>
+
+  <!-- Leistungen Teaser -->
+  <section class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 fade-in">
+        <p class="font-mono text-accent-soft text-xs uppercase tracking-widest mb-4">Was wir tun</p>
+        <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-cream mb-4">
+          Alles aus einer Hand
+        </h2>
+        <p class="text-muted max-w-xl mx-auto leading-relaxed">
+          Sechs Leistungen, ein Ziel: dein Unternehmen sichtbar machen und Ergebnisse liefern.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {leistungen.map((l, i) => (
+          <div
+            class="glass-card rounded-2xl p-8 fade-in"
+            style={`transition-delay: ${i * 80}ms`}
+          >
+            <div class="text-accent-soft mb-5" set:html={l.icon} />
+            <h3 class="font-heading font-bold text-xl text-cream mb-3">{l.title}</h3>
+            <p class="text-muted text-sm leading-relaxed">{l.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-12 fade-in">
+        <a href="/leistungen" class="text-accent-soft font-semibold hover:text-cream transition-colors text-sm">
+          Alle Leistungen im Detail ansehen →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Warum TR Creative -->
+  <section class="py-24 px-6 bg-surface/40">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 fade-in">
+        <p class="font-mono text-accent-soft text-xs uppercase tracking-widest mb-4">Warum TR Creative</p>
+        <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-cream">
+          Drei gute Gründe
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {gruende.map((g, i) => (
+          <div class="fade-in" style={`transition-delay: ${i * 100}ms`}>
+            <div class="font-mono text-accent text-3xl font-bold mb-4">{g.nummer}</div>
+            <h3 class="font-heading font-bold text-xl text-cream mb-3">{g.titel}</h3>
+            <p class="text-muted text-sm leading-relaxed">{g.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Referenz Teaser -->
+  <section class="py-24 px-6">
+    <div class="max-w-3xl mx-auto fade-in">
+      <div class="glass-card rounded-2xl p-10 text-center">
+        <svg width="32" height="32" fill="none" viewBox="0 0 24 24" class="text-accent-soft mx-auto mb-6" aria-hidden="true"><path fill="currentColor" d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
+        <blockquote class="text-cream text-xl md:text-2xl font-heading leading-relaxed mb-8 italic">
+          Professioneller Content der unsere Reichweite spürbar erhöht hat.
+        </blockquote>
+        <div class="font-semibold text-cream">Fahrschule Jan</div>
+        <div class="text-muted text-sm mt-1">Aschersleben, Sachsen-Anhalt</div>
+        <a href="/referenzen" class="inline-block mt-8 text-accent-soft text-sm font-semibold hover:text-cream transition-colors">
+          Case Study ansehen →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abschluss CTA -->
+  <CtaSection
+    headline="Bereit für mehr Sichtbarkeit?"
+    subtext="Kostenloses Erstgespräch. Ich schaue mir deine Situation an und zeige dir konkret was möglich ist."
+    ctaPrimary="Gespräch buchen"
+    ctaPrimaryHref="/kontakt"
+    ctaSecondary="WhatsApp schreiben"
+    ctaSecondaryHref="https://wa.me/491709870872"
+  />
+
 </Base>
