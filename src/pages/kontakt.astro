@@ -1,104 +1,182 @@
 ---
 // src/pages/kontakt.astro
 import Base from '../layouts/Base.astro'
+import PageHero from '../components/PageHero.astro'
 ---
 
-<Base title="Kontakt" description="Kostenloses Erstgespräch mit TR Creative vereinbaren. Toni Rönnspieß, Aschersleben.">
-  <!-- Header -->
-  <section class="bg-navy text-white py-16 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-gold text-sm uppercase tracking-widest mb-3">Erstgespräch vereinbaren</p>
-      <h1 class="font-heading text-4xl md:text-5xl mb-4">Kontakt</h1>
-      <p class="text-white/70 text-lg">Schreib mir kurz was du machst und was du dir wünschst. Ich melde mich innerhalb von 24 Stunden.</p>
-    </div>
-  </section>
+<Base
+  title="Kontakt"
+  description="Kontaktiere TR Creative. Kostenloses Erstgespräch oder direkt via WhatsApp."
+>
+  <PageHero
+    eyebrow="Komm in Kontakt"
+    headline="Lass uns sprechen."
+    subtext="Kostenloses Erstgespräch. Kein Pitch, kein Druck."
+  />
 
-  <!-- Form + Infos -->
-  <section class="py-20 px-6">
-    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-14">
-      <!-- Formular -->
-      <form
-        name="kontakt"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        class="space-y-5"
-      >
-        <input type="hidden" name="form-name" value="kontakt" />
-        <p class="hidden">
-          <label>Nicht ausfüllen: <input name="bot-field" /></label>
-        </p>
+  <section class="py-16 px-6 pb-32">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12">
 
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1" for="name">Name</label>
-          <input
-            id="name" name="name" type="text" required
-            class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-navy"
-            placeholder="Max Mustermann"
-          />
-        </div>
-
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1" for="unternehmen">Unternehmen</label>
-          <input
-            id="unternehmen" name="unternehmen" type="text"
-            class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-navy"
-            placeholder="Muster GmbH"
-          />
-        </div>
-
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1" for="email">E-Mail</label>
-          <input
-            id="email" name="email" type="email" required
-            class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-navy"
-            placeholder="max@beispiel.de"
-          />
-        </div>
-
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1" for="nachricht">Was beschäftigt dich?</label>
-          <textarea
-            id="nachricht" name="nachricht" rows="5" required
-            class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-navy resize-none"
-            placeholder="Kurz beschreiben was du machst, was fehlt und was du dir vorstellst..."
-          ></textarea>
-        </div>
-
-        <button
-          type="submit"
-          class="w-full bg-gold text-navy font-semibold py-3 rounded-lg hover:brightness-110 transition"
-        >
-          Nachricht senden
-        </button>
-      </form>
-
-      <!-- Kontakt-Infos -->
-      <div class="space-y-8">
-        <div>
-          <h2 class="font-heading text-xl text-navy mb-4">Direkt erreichen</h2>
-          <div class="space-y-3 text-sm text-gray-600">
-            <div class="flex items-center gap-3">
-              <span class="text-gold text-lg">✉</span>
-              <a href="mailto:toniroennspiess@tr-creative.de" class="hover:text-navy">toniroennspiess@tr-creative.de</a>
+        <div class="fade-in">
+          <div class="glass-card rounded-2xl p-10 h-full flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-full bg-[#25D366]/20 flex items-center justify-center mb-6">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.527 5.845L.057 23.215a.75.75 0 00.928.928l5.37-1.47A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.99 0-3.86-.549-5.455-1.505l-.39-.232-4.044 1.106 1.106-4.044-.232-.39A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+                </svg>
+              </div>
+              <h2 class="font-heading font-bold text-2xl text-cream mb-4">Direkt via WhatsApp</h2>
+              <p class="text-muted leading-relaxed mb-8">
+                Schreib mir direkt. Ich antworte in der Regel innerhalb weniger Stunden und wir können direkt besprechen was du brauchst.
+              </p>
             </div>
-            <div class="flex items-center gap-3">
-              <span class="text-gold text-lg">📍</span>
-              <span>Aschersleben, Sachsen-Anhalt</span>
-            </div>
+            <a
+              href="https://wa.me/491709870872"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center gap-3 bg-[#25D366] text-white font-semibold py-4 px-6 rounded-xl hover:brightness-110 transition-all duration-200 text-sm"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.527 5.845L.057 23.215a.75.75 0 00.928.928l5.37-1.47A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.99 0-3.86-.549-5.455-1.505l-.39-.232-4.044 1.106 1.106-4.044-.232-.39A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+              </svg>
+              WhatsApp schreiben
+            </a>
           </div>
         </div>
 
-        <div class="bg-gray-50 rounded-2xl p-6">
-          <h3 class="font-heading text-navy text-lg mb-2">Wie läuft das Erstgespräch ab?</h3>
-          <ol class="space-y-2 text-sm text-gray-600">
-            <li class="flex gap-2"><span class="text-gold font-bold">1.</span> Du schreibst mir — kurz, kein Aufwand.</li>
-            <li class="flex gap-2"><span class="text-gold font-bold">2.</span> Ich melde mich innerhalb von 24 h.</li>
-            <li class="flex gap-2"><span class="text-gold font-bold">3.</span> Kurzes Gespräch — ich lerne dein Unternehmen kennen.</li>
-            <li class="flex gap-2"><span class="text-gold font-bold">4.</span> Du bekommst einen konkreten Vorschlag.</li>
-          </ol>
+        <div class="fade-in" style="transition-delay: 100ms">
+          <div class="glass-card rounded-2xl p-10">
+            <h2 class="font-heading font-bold text-2xl text-cream mb-8">Nachricht schreiben</h2>
+
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              id="contact-form"
+              class="space-y-5"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <p class="hidden">
+                <label>Nicht ausfüllen: <input name="bot-field" /></label>
+              </p>
+
+              <div>
+                <label for="name" class="block text-cream/80 text-sm font-medium mb-2">
+                  Name <span class="text-brand" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  autocomplete="name"
+                  class="w-full bg-midnight border border-accent/20 text-cream placeholder-muted rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accent-soft transition-colors"
+                  placeholder="Max Mustermann"
+                />
+              </div>
+
+              <div>
+                <label for="email" class="block text-cream/80 text-sm font-medium mb-2">
+                  E-Mail <span class="text-brand" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  autocomplete="email"
+                  class="w-full bg-midnight border border-accent/20 text-cream placeholder-muted rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accent-soft transition-colors"
+                  placeholder="max@musterfirma.de"
+                />
+              </div>
+
+              <div>
+                <label for="unternehmen" class="block text-cream/80 text-sm font-medium mb-2">
+                  Unternehmen
+                </label>
+                <input
+                  type="text"
+                  id="unternehmen"
+                  name="unternehmen"
+                  autocomplete="organization"
+                  class="w-full bg-midnight border border-accent/20 text-cream placeholder-muted rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accent-soft transition-colors"
+                  placeholder="Musterfirma GmbH"
+                />
+              </div>
+
+              <div>
+                <label for="nachricht" class="block text-cream/80 text-sm font-medium mb-2">
+                  Nachricht <span class="text-brand" aria-hidden="true">*</span>
+                </label>
+                <textarea
+                  id="nachricht"
+                  name="nachricht"
+                  required
+                  rows="5"
+                  class="w-full bg-midnight border border-accent/20 text-cream placeholder-muted rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-accent-soft transition-colors resize-none"
+                  placeholder="Was kann ich für dich tun?"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                id="submit-btn"
+                class="w-full bg-brand text-white font-semibold py-4 rounded-lg hover:brightness-110 transition-all duration-200 text-sm tracking-wide"
+              >
+                Nachricht senden
+              </button>
+
+              <div
+                id="success-message"
+                class="hidden text-center p-4 rounded-lg bg-accent/10 border border-accent/20 text-accent-soft text-sm"
+                role="alert"
+                aria-live="polite"
+              >
+                Danke für deine Nachricht. Ich melde mich bald.
+              </div>
+            </form>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
+
+  <script>
+    const form = document.getElementById('contact-form') as HTMLFormElement | null
+    const btn = document.getElementById('submit-btn') as HTMLButtonElement | null
+    const success = document.getElementById('success-message') as HTMLDivElement | null
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      if (!btn || !success) return
+      btn.disabled = true
+      btn.textContent = 'Wird gesendet...'
+
+      try {
+        const data = new FormData(form)
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+        })
+
+        if (response.ok) {
+          form.reset()
+          success.classList.remove('hidden')
+          btn.textContent = 'Gesendet'
+        } else {
+          btn.disabled = false
+          btn.textContent = 'Erneut versuchen'
+        }
+      } catch {
+        btn.disabled = false
+        btn.textContent = 'Erneut versuchen'
+      }
+    })
+  </script>
 </Base>
