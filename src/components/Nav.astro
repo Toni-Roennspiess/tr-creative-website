@@ -46,7 +46,7 @@ const currentPath = Astro.url.pathname
     </a>
 
     <button
-      class="md:hidden text-cream p-2"
+      class="md:hidden text-cream p-3"
       id="menu-toggle"
       aria-label="Menü öffnen"
       aria-expanded="false"
@@ -63,7 +63,7 @@ const currentPath = Astro.url.pathname
         <li>
           <a
             href={link.href}
-            class="text-cream/80 hover:text-accent-soft transition-colors text-base block py-1"
+            class={`transition-colors text-base block py-1 hover:text-accent-soft ${currentPath === link.href ? 'text-accent-soft' : 'text-cream/80'}`}
           >
             {link.label}
           </a>
