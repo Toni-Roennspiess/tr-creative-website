@@ -32,7 +32,7 @@ import PageHero from '../components/PageHero.astro'
                 Schreib mir direkt. Ich antworte in der Regel innerhalb weniger Stunden und wir können direkt besprechen was du brauchst.
               </p>
             </div>
-            <a
+            
               href="https://wa.me/491709870872"
               target="_blank"
               rel="noopener noreferrer"
@@ -159,7 +159,7 @@ import PageHero from '../components/PageHero.astro'
 
       try {
         const data = new FormData(form)
-        const response = await fetch('/', {
+        const response = await fetch('/kontakt', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
