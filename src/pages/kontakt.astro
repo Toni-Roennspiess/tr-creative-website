@@ -159,7 +159,7 @@ import PageHero from '../components/PageHero.astro'
 
       try {
         const data = new FormData(form)
-        const response = await fetch('/', {
+        const response = await fetch('/kontakt', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
